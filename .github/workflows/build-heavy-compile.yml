@@ -8,6 +8,9 @@ jobs:
     runs-on: windows-2022
 
     steps:
+    - name: Checkout code
+      uses: hendrikmuhs/ccache-action@63069e3931dedbf3b63792097479563182fe70d1 # v1.2.18
+
     - name: Configure build
       run: |
         mkdir build
