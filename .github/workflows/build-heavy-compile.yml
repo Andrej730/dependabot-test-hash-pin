@@ -1,0 +1,26 @@
+name: Build Heavy Compile Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-heavy-compile:
+    runs-on: windows-2022
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8  # v5.0.0
+
+    - name: Configure build
+      run: |
+        mkdir build
+        cd build
+        cmake .. -G Ninja -DCMAKE_CXX_COMPILER_LAUNCHER=ccache
+
+    - name: Build with timing
+      run: |
+        cd build
+        ninja
+
+    - name: Show ccache statistics
+      run: ccache --show-stats
