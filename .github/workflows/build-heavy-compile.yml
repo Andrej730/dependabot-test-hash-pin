@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: hendrikmuhs/ccache-action@15457da8f7bbf9b2c71f2efebd847c1a84650208
+      uses: hendrikmuhs/ccache-action@5ebbd400eff9e74630f759d94ddd7b6c26299639
 
     - name: Configure build
       run: |
